@@ -1,50 +1,44 @@
 package com.lycheabhak.e_contact;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.Movie;
-import android.support.v4.media.MediaMetadataCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.style.LineHeightSpan;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.zxing.Result;
-import com.google.zxing.qrcode.QRCodeReader;
-import com.google.zxing.qrcode.QRCodeWriter;
-import com.google.zxing.qrcode.encoder.QRCode;
-
-import org.w3c.dom.Text;
+import net.glxn.qrgen.android.QRCode;
+import net.glxn.qrgen.core.scheme.VCard;
 
 import java.io.File;
 
-import ezvcard.Ezvcard;
-import ezvcard.VCard;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+
+
 
 public class MainActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 private ZXingScannerView mScannerView;
+
+
+
     private boolean camera = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*
-        MyDatabase myDatabase = new MyDatabase(getApplicationContext()); // open database
-        String[] args = {};
-        Cursor cursor = myDatabase.getReadableDatabase().rawQuery("SELECT * FROM personal", args);
-        cursor.moveToNext();
-        String name = cursor.getString(0); // 0 here is the column index
-        String p_phone = cursor.getString(1);
-        String w_phone = cursor.getString(2);
-        String p_mail = cursor.getString(3);
-        String w_mail = cursor.getString(4);
-        String all = name + p_mail + p_phone+w_mail+w_phone;
-*/
+        qrgen();
 
     }
 
@@ -62,36 +56,26 @@ private ZXingScannerView mScannerView;
         //System.exit(0);
 
     }
-/*public void qrgen () {
-    Bitmap myBitmap = QRCode.from("www.example.org").bitmap();
-    ImageView myImage = (ImageView) findViewById(R.id.imageView);
+public void qrgen () {
+
+    SharedPreferences sharedPreferences = getSharedPreferences("settings", Context.MODE_PRIVATE);
+    String vcardString = sharedPreferences.getString("personal", null);
+    VCard personal;
+    if(vcardString == null) {
+        personal = new VCard();
+    }else {
+        personal = VCard.parse(vcardString);
+    }
+    TextView name=(TextView) findViewById(R.id.nameTextView);
+    name.setText(personal.getName());
+    Bitmap myBitmap = QRCode.from(personal).withSize(500,500).bitmap();
+    ImageView myImage = (ImageView) findViewById(R.id.img_qr);
     myImage.setImageBitmap(myBitmap);
-  */
-    /*String text =
-            "BEGIN:vcard\r\n" +
-                    "VERSION:3.0\r\n" +
-                    "N:House;Gregory;;Dr;MD\r\n" +
-                    "FN:Dr. Gregory House M.D.\r\n" +
-                    "END:vcard\r\n";
-
-    VCard vcard = Ezvcard.parse(text).first();
-*/
-    /*VCard johnDoe = new VCard("abc new")
-            .setEmail("abc.doe@example.org")
-            .setAddress("John Doe Street 1, 5678 Doestown")
-            .setTitle("Mister")
-            .setCompany("John Doe Inc.")
-            .setPhoneNumber("1234")
-            .setWebsite("www.example.org");
-
-
-
-
-    File file = QRCode.from(vcard).file();
-    Log.d("exc", file.toString());
-
 }
-*/
+
+
+
+
     public void NewActivity(View view){
         Intent intent = new Intent(MainActivity.this, PersonalActivity.class);
         startActivity(intent);
@@ -101,7 +85,7 @@ private ZXingScannerView mScannerView;
         mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
         setContentView(mScannerView);
         mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
-       // mScannerView.startCamera();// Start camera
+        mScannerView.startCamera();// Start camera
         camera=true;
     }
 
@@ -117,10 +101,14 @@ private ZXingScannerView mScannerView;
 
     @Override
     public void handleResult(Result rawResult) {
-        // Do something with the result here
+        Log.e("handler", rawResult.getText());
+        VCard contact=VCard.parse(rawResult.getText());
 
-        Log.e("handler", rawResult.getText()); // Prints scan results
-        Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
+
+        // Do something with the result here
+/*
+         // Prints scan results
+        //Log.e("handler", rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode)
 
         // show the scanner result into dialog box.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -131,6 +119,7 @@ private ZXingScannerView mScannerView;
         //mScannerView.resumeCameraPreview(this);
         // If you would like to resume scanning, call this method below:
         // mScannerView.resumeCameraPreview(this);
+    */
     }
 
 }
