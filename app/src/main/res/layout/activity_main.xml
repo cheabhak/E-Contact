@@ -19,27 +19,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
-    <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:id="@+id/addnewButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:foreground="@android:drawable/ic_input_add"
-        android:background="@android:drawable/presence_online" />
 
-    <ImageButton
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/imageButton2"
-        android:onClick="NewActivity"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@android:drawable/ic_menu_edit"
-        android:layout_alignParentTop="true"
-        android:backgroundTint="@android:drawable/ic_menu_edit"
-        android:foreground="@android:drawable/ic_menu_edit" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,9 +28,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/nameTextView"
         android:hint="Name User"
-        android:layout_above="@+id/img_qr"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="71dp" />
+        />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/addnewButton"
+        android:background="@drawable/circle_ripple"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:text="+"
+        android:typeface="normal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonEdit"
+        android:onClick="personal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:typeface="normal" />
 
 
 </RelativeLayout>

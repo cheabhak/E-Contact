@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Typeface typeface = Typeface.createFromAsset(getAssets(),"icomoon.ttf");
         qrgen();
-        ImageButton startscan = (ImageButton) findViewById(R.id.addnewButton);
-
+        Button startscan = (Button) findViewById(R.id.addnewButton);
+        //startscan.setTypeface(typeface);
         startscan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+
     }
 
 
@@ -69,10 +73,16 @@ public void qrgen () {
     myImage.setImageBitmap(myBitmap);
 }
 
-    public void NewActivity(View view){
+
+   /* public void NewActivity(View view){
         Intent intent = new Intent(MainActivity.this, PersonalActivity.class);
         startActivity(intent);
-    }
+    }*/
+public void personal(View view) {
+    //Button editinfo = (Button) findViewById(R.id.buttonEdit);
+    Intent intent = new Intent(getApplicationContext(), PersonalActivity.class);
+    startActivity(intent);
+}
 
 
 }
