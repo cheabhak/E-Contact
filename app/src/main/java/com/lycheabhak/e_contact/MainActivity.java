@@ -39,10 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Typeface typeface = Typeface.createFromAsset(getAssets(),"icomoon.ttf");
         qrgen();
         Button startscan = (Button) findViewById(R.id.addnewButton);
-        //startscan.setTypeface(typeface);
         startscan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,15 +72,12 @@ public void qrgen () {
 }
 
 
-   /* public void NewActivity(View view){
+    public void NewActivity(View view){
         Intent intent = new Intent(MainActivity.this, PersonalActivity.class);
         startActivity(intent);
-    }*/
-public void personal(View view) {
-    //Button editinfo = (Button) findViewById(R.id.buttonEdit);
-    Intent intent = new Intent(getApplicationContext(), PersonalActivity.class);
-    startActivity(intent);
-}
+    }
+
+
 
 
 }
