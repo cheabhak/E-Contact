@@ -70,7 +70,8 @@
         android:layout_alignBottom="@+id/mailPEditText"
         android:layout_toStartOf="@+id/mailPEditText"
         android:src="@mipmap/mail"
-        android:layout_alignTop="@+id/mailPEditText" />
+        android:layout_alignTop="@+id/mailPEditText"
+        android:contentDescription="@string/name" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -93,5 +94,17 @@
         android:layout_alignBottom="@+id/addresEditText1"
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView4"
+        android:src="@mipmap/user"
+        android:layout_alignTop="@+id/nameEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_above="@+id/phonePEditText" />
 
 </RelativeLayout>

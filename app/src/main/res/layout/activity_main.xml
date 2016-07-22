@@ -7,38 +7,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.lycheabhak.e_contact.MainActivity">
+    tools:context="com.lycheabhak.e_contact.MainActivity"
+    android:background="@color/button_material_light">
 
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:id="@+id/img_qr"
-        android:layout_above="@+id/imageButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@color/abc_color_highlight_material"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:id="@+id/imageButton"
-        android:onClick="QrScanner"
-        android:src="@mipmap/addnew"
+        android:id="@+id/addnewButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/imageButton2"
-        android:layout_alignStart="@+id/imageButton2" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:foreground="@android:drawable/ic_input_add"
+        android:background="@android:drawable/presence_online" />
 
     <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/imageButton2"
         android:onClick="NewActivity"
-        android:src="@mipmap/edit"
-        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@android:drawable/ic_menu_edit"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@android:drawable/ic_menu_edit"
+        android:foreground="@android:drawable/ic_menu_edit" />
 
     <TextView
         android:layout_width="wrap_content"
