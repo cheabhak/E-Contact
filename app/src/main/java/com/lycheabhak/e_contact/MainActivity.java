@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.style.LineHeightSpan;
@@ -22,6 +23,8 @@ import com.google.zxing.Result;
 import net.glxn.qrgen.android.QRCode;
 import net.glxn.qrgen.core.scheme.VCard;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -30,14 +33,20 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 
 public class MainActivity extends AppCompatActivity  {
-
+String ico="&#xf004;";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         qrgen();
+        Typeface font = Typeface.createFromAsset( getAssets(), "fontawesome-webfont.ttf" );
+        Button startscan = (Button) findViewById(R.id.addnew);
+        Button newactivity = (Button) findViewById(R.id.newactivity);
+        TextView hand =(TextView) findViewById(R.id.handtextview);
+        hand.setTypeface(font);
+        newactivity.setTypeface(font);
+        startscan.setTypeface(font);
 
-        ImageButton startscan = (ImageButton) findViewById(R.id.addnew);
         startscan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,6 +57,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
     }
+
 
 public void qrgen () {
 

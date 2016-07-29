@@ -7,39 +7,44 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.lycheabhak.e_contact.MainActivity">
+    tools:context="com.lycheabhak.e_contact.MainActivity"
+    android:background="@color/button_material_light">
 
 
     <ImageView
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:id="@+id/img_qr"
-        android:layout_above="@+id/addnew"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/addnew"
-        android:layout_alignEnd="@+id/addnew"
-        android:layout_below="@+id/imageButton2" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
-    <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/addnew"
-        android:src="@mipmap/addnew"
+        android:text="+"
+        android:background="@drawable/circle_ripple"
+        android:textSize="40dp"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/imageButton2"
-        android:layout_alignStart="@+id/imageButton2" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        />
 
-    <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:id="@+id/imageButton2"
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/newactivity"
         android:onClick="NewActivity"
-        android:src="@mipmap/edit"
+        android:text="@string/pencil"
+        android:textSize="30dp"
+        android:foregroundTint="#393838"
+        android:background="@drawable/abc_action_bar_item_background_material"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@string/abc_font_family_headline_material" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +52,45 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/nameTextView"
         android:hint="Name User"
+        android:fontFamily="serif"
+        android:textColor="#BF1616"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/newactivity"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thanks You"
+        android:id="@+id/textView2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        />
+        android:textSize="20dp"
+        android:textColor="@color/abc_primary_text_disable_only_material_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan ME"
+        android:id="@+id/textView"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@color/abc_primary_text_disable_only_material_light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/handtextview"
+        android:text="@string/pointhand"
+        android:textSize="50dp"
+        android:textColor="@color/blue"
+        android:layout_above="@+id/addnew"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

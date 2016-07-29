@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">E-Contact</string>
     <string name="ly_cheabhak">LY Cheabhak</string>
+    <string name="addplus">&#xf067;</string>
+    <string name="pencil">&#xf040;</string>
+    <string name="pointhand">&#xf0a6;</string>
 </resources>
