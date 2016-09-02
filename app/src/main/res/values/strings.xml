@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">E-Contact</string>
     <string name="ly_cheabhak">LY Cheabhak</string>
+    <string name="add_user">&#xf234;</string>
+    <string name="pencil">&#xf040;</string>
+    <string name="home">&#xf015;</string>
+    <string name="mail">&#xf282;</string>
+    <string name="user">&#xf007;</string>
+    <string name="phone">&#xf098;</string>
 </resources>
