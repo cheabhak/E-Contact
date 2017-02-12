@@ -31,10 +31,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-        import android.widget.TextView;
-
-        import net.glxn.qrgen.core.scheme.VCard;
-
+import net.glxn.qrgen.core.scheme.VCard;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
